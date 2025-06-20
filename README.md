@@ -10,17 +10,22 @@ A modern, visually appealing coding platform for education, featuring a split la
 
 ## Project Structure
 ```
-education-platform/
+ai-powered-education-feedback/
   ├── backend/           # Flask backend
-  │   └── app.py
-  │   └── requirements.txt
-  ├── public/            # Static assets
-  ├── src/               # React frontend source
-  │   └── App.jsx, App.css, ...
-  ├── package.json       # Frontend dependencies
-  ├── vite.config.js     # Vite config
-  ├── README.md          # Project description
-  └── .gitignore         # Git ignore rules
+  │   ├── app.py
+  │   ├── questions.json
+  │   ├── requirements.txt
+  │   ├── all_models/
+  │   ├── phi2_feedback_model
+  │   ├── topics_dataset.json
+  ├── education-platform/ # React frontend
+  │   ├── public/         # Static assets
+  │   ├── src/            # React source
+  │   ├── package.json    # Frontend dependencies
+  │   ├── vite.config.js  # Vite config
+  │   ├── README.md       # Frontend description
+  ├── README.md           # Project description
+  └── .gitignore          # Git ignore rules
 ```
 
 ## Getting Started
