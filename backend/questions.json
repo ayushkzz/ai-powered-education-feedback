@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1",
+    "title": "Fibonacci Series",
+    "description": "Write a function to generate Fibonacci series up to n (exclusive). Return the list of numbers.",
+    "function_name": "fibonacci",
+    "test_cases": [
+      {"input": "5", "expected_output": "[0, 1, 1, 2, 3]"},
+      {"input": "1", "expected_output": "[0]"},
+      {"input": "0", "expected_output": "[]"}
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Check Prime",
+    "description": "Write a function to check if a number is prime. Return True or False.",
+    "function_name": "is_prime",
+    "test_cases": [
+      {"input": "7", "expected_output": "True"},
+      {"input": "10", "expected_output": "False"},
+      {"input": "2", "expected_output": "True"}
+    ]
+  },
+  {
+    "id": "3",
+    "title": "String Reversal",
+    "description": "Write a function that takes a string and returns its reverse.",
+    "function_name": "reverse_string",
+    "test_cases": [
+      {"input": "'hello'", "expected_output": "'olleh'"},
+      {"input": "'Python'", "expected_output": "'nohtyP'"},
+      {"input": "''", "expected_output": "''"}
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Sum of List",
+    "description": "Write a function that returns the sum of all numbers in a list.",
+    "function_name": "sum_list",
+    "test_cases": [
+      {"input": "[1,2,3]", "expected_output": "6"},
+      {"input": "[]", "expected_output": "0"},
+      {"input": "[10,-2,8]", "expected_output": "16"}
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Palindrome Check",
+    "description": "Write a function that checks if a string is a palindrome. Return True or False.",
+    "function_name": "is_palindrome",
+    "test_cases": [
+      {"input": "'racecar'", "expected_output": "True"},
+      {"input": "'hello'", "expected_output": "False"},
+      {"input": "'a'", "expected_output": "True"}
+    ]
+  }
+]

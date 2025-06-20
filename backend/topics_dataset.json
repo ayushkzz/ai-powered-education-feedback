@@ -1,0 +1,128 @@
+{
+  "Health and Fitness": [
+    {
+      "question": "What are two simple habits that help maintain good health?",
+      "reference": "Eating balanced meals and exercising regularly are simple habits that help maintain good health. Other helpful habits include drinking plenty of water, getting enough sleep, and practicing good hygiene."
+    },
+    {
+      "question": "Why is regular exercise important for the body?",
+      "reference": "Regular exercise is important because it strengthens muscles, improves heart and lung health, helps control weight, and reduces the risk of chronic diseases like diabetes and heart disease."
+    },
+    {
+      "question": "How does drinking enough water benefit your health?",
+      "reference": "Drinking enough water helps the body stay hydrated, improves digestion, flushes out toxins, regulates body temperature, and supports healthy skin."
+    },
+    {
+      "question": "Name one physical activity that helps improve fitness.",
+      "reference": "Walking is a simple physical activity that improves fitness. Other activities include jogging, cycling, swimming, yoga, and dancing."
+    },
+    {
+      "question": "Why is getting enough sleep important for the body and mind?",
+      "reference": "Getting enough sleep is important because it restores energy, improves memory and focus, boosts immunity, reduces stress, and supports emotional well-being."
+    },
+    {
+      "question": "What does a balanced diet include?",
+      "reference": "A balanced diet includes a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats. It ensures the body gets all the necessary nutrients to function properly."
+    },
+    {
+      "question": "How can talking to others improve mental health?",
+      "reference": "Talking to others can improve mental health by reducing stress, providing emotional support, helping people feel less alone, and allowing them to express their feelings openly."
+    },
+    {
+      "question": "Give an example of a harmful habit people should avoid.",
+      "reference": "Smoking is a harmful habit people should avoid. Other harmful habits include eating too much junk food, skipping meals, drinking alcohol excessively, and not exercising."
+    },
+    {
+      "question": "How does mental health affect overall well-being?",
+      "reference": "Mental health affects overall well-being by influencing how we think, feel, and act. Poor mental health can lead to stress, low energy, sleep problems, and difficulty maintaining relationships."
+    },
+    {
+      "question": "Why is it important to take care of both physical and mental health?",
+      "reference": "It is important to take care of both physical and mental health because they are connected and essential for living a healthy, balanced, and fulfilling life."
+    }
+  ],
+  "Environment and Nature": [
+    {
+      "question": "What does the environment include?",
+      "reference": "The environment includes everything in the natural world around us, such as air, water, land, animals, plants, and trees."
+    },
+    {
+      "question": "Why is clean air important for humans?",
+      "reference": "Clean air is important because it allows us to breathe properly, prevents respiratory diseases, and supports overall health and survival."
+    },
+    {
+      "question": "How does deforestation harm wildlife?",
+      "reference": "Deforestation harms wildlife by destroying their natural habitats, forcing them to move or die, and disrupting the balance of ecosystems."
+    },
+    {
+      "question": "What is one way you can help reduce pollution?",
+      "reference": "One way to reduce pollution is by using public transport or cycling instead of driving. Other ways include recycling, reducing plastic use, and planting trees."
+    },
+    {
+      "question": "Why should we use less plastic in our daily lives?",
+      "reference": "We should use less plastic because it pollutes land and oceans, harms animals who eat or get trapped in it, and takes hundreds of years to decompose."
+    },
+    {
+      "question": "How can planting trees help the environment?",
+      "reference": "Planting trees helps the environment by cleaning the air, absorbing carbon dioxide, preventing soil erosion, and providing shelter for wildlife."
+    },
+    {
+      "question": "Name one natural resource we should use carefully.",
+      "reference": "Water is a natural resource we should use carefully. Other examples include forests, fossil fuels like coal and oil, and clean air."
+    },
+    {
+      "question": "What happens when water sources are polluted?",
+      "reference": "When water sources are polluted, it becomes unsafe for drinking, harms aquatic life, spreads diseases, and affects agriculture and daily use."
+    },
+    {
+      "question": "How does saving electricity help nature?",
+      "reference": "Saving electricity helps nature by reducing the burning of fossil fuels, which decreases air pollution and helps fight climate change."
+    },
+    {
+      "question": "Why should we protect the environment for future generations?",
+      "reference": "We should protect the environment so that future generations can enjoy clean air, safe water, fertile land, and a healthy planet."
+    }
+  ],
+  "Education and Learning": [
+    {
+      "question": "Why is education important for a person’s future?",
+      "reference": "Education is important because it helps people gain knowledge, build careers, make informed decisions, and improve their quality of life."
+    },
+    {
+      "question": "What are some skills we learn through education?",
+      "reference": "Through education, we learn important skills like reading, writing, problem-solving, communication, teamwork, and critical thinking."
+    },
+    {
+      "question": "How does learning help in solving real-life problems?",
+      "reference": "Learning helps solve real-life problems by teaching us how to think clearly, analyze situations, and make smart decisions based on knowledge."
+    },
+    {
+      "question": "What is the difference between formal and informal education?",
+      "reference": "Formal education takes place in schools or colleges with a set curriculum, while informal education happens through daily experiences, self-learning, and conversations."
+    },
+    {
+      "question": "Name one way education helps build communication skills.",
+      "reference": "Education builds communication skills through classroom discussions, writing assignments, group projects, and presentations."
+    },
+    {
+      "question": "How can learning outside school be valuable?",
+      "reference": "Learning outside school is valuable because it teaches practical life skills, builds confidence, and encourages curiosity through real-world experiences."
+    },
+    {
+      "question": "Why is education called a “lifelong process”?",
+      "reference": "Education is called a lifelong process because we continue learning new things throughout our lives — at work, through reading, or by exploring new ideas."
+    },
+    {
+      "question": "How does education help a country grow?",
+      "reference": "Education helps a country grow by creating skilled workers, reducing poverty, promoting innovation, and strengthening the economy and democracy."
+    },
+    {
+      "question": "What role does school play in shaping a student’s life?",
+      "reference": "School plays a key role by providing structured learning, social development, discipline, and opportunities to explore interests and talents."
+    },
+    {
+      "question": "Why should we continue learning even after finishing school?",
+      "reference": "We should continue learning after school to stay updated with changes in the world, improve ourselves, and adapt to new challenges in life or work."
+    }
+  ]
+}
