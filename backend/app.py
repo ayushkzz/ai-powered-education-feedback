@@ -7,21 +7,19 @@ import traceback
 import json
 from flask_cors import CORS
 from sentence_transformers import SentenceTransformer, util
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer as Seq2SeqTokenizer, AutoModelForSeq2SeqLM
 from difflib import SequenceMatcher
-import json
 
 app = Flask(__name__)
 CORS(app)
 
-
 class AIEduFeedbackSystem:
-    def init(self, json_path="topics_dataset.json"):
+    def __init__(self, json_path="topics_dataset.json"):
         print("🚀 Initializing AI Feedback System...")
-        # Load locally saved models
-        self.similarity_model = SentenceTransformer("./all_models/sentence_transformer_model")
-        self.qg_tokenizer = AutoTokenizer.from_pretrained("./all_models//t5_qg_tokenizer")
-        self.qg_model = AutoModelForSeq2SeqLM.from_pretrained("./all_models//t5_qg_model")
+        # Load models directly from Hugging Face Hub
+        self.similarity_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+        self.qg_tokenizer = Seq2SeqTokenizer.from_pretrained("t5-small")
+        self.qg_model = AutoModelForSeq2SeqLM.from_pretrained("t5-small")
 
         self.topics = self.load_topics(json_path)
 
@@ -33,14 +31,12 @@ class AIEduFeedbackSystem:
         ref_embed = self.similarity_model.encode(reference, convert_to_tensor=True)
         student_embed = self.similarity_model.encode(student_input, convert_to_tensor=True)
         similarity_score = util.cos_sim(ref_embed, student_embed).item()
-
         if similarity_score > 0.7:
             match = "✅ Concept match: Excellent"
         elif similarity_score > 0.4:
             match = "🔶 Partial concept match"
         else:
             match = "❌ Weak or incorrect concept"
-
         return {
             "match": match,
             "similarity_score": round(similarity_score, 2)
@@ -70,7 +66,6 @@ class AIEduFeedbackSystem:
             feedback = self.get_text_feedback(reference, student_answer)
             misconception = self.detect_misconception(student_answer, reference)
             practice = self.generate_practice_question(reference)
-
             return {
                 "question": question,
                 "student_answer": student_answer,
@@ -82,21 +77,16 @@ class AIEduFeedbackSystem:
         except Exception as e:
             return {"error": str(e)}
 
-
 # Initialize the AI Education Feedback System
 edu_model = AIEduFeedbackSystem()
-edu_model.init()
-
 
 @app.route('/edu/topics', methods=['GET'])
 def get_edu_topics():
     return jsonify({"topics": edu_model.list_topics()})
 
-
 @app.route('/edu/questions/<topic>', methods=['GET'])
 def get_edu_questions(topic):
     return jsonify({"questions": edu_model.get_questions(topic)})
-
 
 @app.route('/edu/feedback', methods=['POST'])
 def edu_feedback():
@@ -106,15 +96,13 @@ def edu_feedback():
     answer = data.get("student_answer")
     if not topic or index is None or answer is None:
         return jsonify({"error": "Missing required fields"}), 400
-
     result = edu_model.get_feedback(topic, index, answer)
     return jsonify(result)
 
-
-# Load model and tokenizer from local folder
-model_dir = "phi2_feedback_model"
-tokenizer = AutoTokenizer.from_pretrained(model_dir)
-model = AutoModelForCausalLM.from_pretrained(model_dir)
+# Load feedback model and tokenizer directly from Hugging Face Hub
+feedback_model_id = "microsoft/phi-2"
+tokenizer = AutoTokenizer.from_pretrained(feedback_model_id)
+model = AutoModelForCausalLM.from_pretrained(feedback_model_id)
 device = 0 if torch.cuda.is_available() else -1
 generator = pipeline("text-generation", model=model, tokenizer=tokenizer, device=device)
 
@@ -122,13 +110,11 @@ generator = pipeline("text-generation", model=model, tokenizer=tokenizer, device
 with open("questions.json", "r") as f:
     QUESTIONS = json.load(f)
 
-
 def get_question_by_id(qid):
     for q in QUESTIONS:
         if q['id'] == qid:
             return q
     return None
-
 
 def generate_human_feedback(problem, code, test_results):
     prompt = (
@@ -145,14 +131,12 @@ def generate_human_feedback(problem, code, test_results):
     feedback = result[0]['generated_text'].split("Feedback:")[-1].strip()
     return feedback
 
-
 @app.route('/questions', methods=['GET'])
 def questions():
     return jsonify([
-        {k: q[k] for k in q if k != "test_cases"}
+        {k: q[k] for k in q if k != "test_cases"} | {"test_cases": q["test_cases"][:2]}
         for q in QUESTIONS
     ])
-
 
 @app.route('/question/<question_id>', methods=['GET'])
 def get_question(question_id):
@@ -160,7 +144,6 @@ def get_question(question_id):
     if q:
         return jsonify(q)
     return jsonify({'error': 'Question not found'}), 404
-
 
 @app.route('/submit', methods=['POST'])
 def submit_code():
@@ -170,7 +153,8 @@ def submit_code():
     q = get_question_by_id(question_id)
     if not q:
         return jsonify({'error': 'Question not found'}), 404
-    # Instead of running or testing the code, just generate feedback
+
+    # No code execution, just feedback
     feedback_text = generate_human_feedback(
         q['title'],
         code,
@@ -178,10 +162,10 @@ def submit_code():
     )
 
     return jsonify({
+        'test_results': [],
         'syntax_error': None,
         'feedback': feedback_text
     })
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
