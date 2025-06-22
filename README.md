@@ -103,6 +103,3 @@ ai-powered-education-feedback/
 ### 3. Open in Browser
 - Visit `http://localhost:5173` to use the platform.
 - Ensure the backend (`http://localhost:5000`) is running for full functionality.
-
-## License
-MIT
